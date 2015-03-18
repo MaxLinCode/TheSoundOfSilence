@@ -2,12 +2,14 @@ package com.soundofsilence.game;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
 
 public class Game implements ApplicationListener {
 	public static int SCREEN_WIDTH, SCREEN_HEIGHT;
 	
 	GameStateManager gsm;
+	FPSLogger fpslog = new FPSLogger();
 	
 	@Override
 	public void create () {
@@ -19,15 +21,25 @@ public class Game implements ApplicationListener {
 
 	@Override
 	public void render () {
+		fpslog.log();
+		try{
+			Thread.sleep(200);
+		}
+		catch(Exception e) {
+			
+		}
+		
+		
 		// clear screen
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
 		//update
+	
 		gsm.update(Gdx.graphics.getDeltaTime());
 		
 		//draw
 		gsm.draw();
+		
 	}
 
 	@Override

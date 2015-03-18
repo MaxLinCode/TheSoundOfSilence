@@ -1,8 +1,8 @@
 package com.soundofsilence.entities;
 
 public abstract class Entity {
-	public int x = 0;
-	public int y = 0;
+	public float x = 0;
+	public float y = 0;
 	
 	protected int width;
 	protected int height;
@@ -11,14 +11,14 @@ public abstract class Entity {
 		
 	}
 	
-	public Entity(int x, int y, int width, int height) {
+	public Entity(float x, float y, int width, int height) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 	}
 	
-	public void translate(int x, int y) {
+	public void translate(float x, float y) {
 		this.x += x;
 		this.y += y;
 	}

@@ -8,6 +8,7 @@ import com.soundofsilence.entities.Player;
 import com.soundofsilence.game.Game;
 import com.soundofsilence.game.GameStateManager;
 import com.soundofsilence.graphics.Background;
+import com.soundofsilence.map.Map;
 
 public class PlayState extends GameState {
 	
@@ -15,6 +16,7 @@ public class PlayState extends GameState {
 	private Background backgd;
 	private OrthographicCamera cam;
 	
+	private Map map;
 	private Player player;
 	
 	public PlayState(GameStateManager gsm) {
@@ -30,18 +32,29 @@ public class PlayState extends GameState {
 		cam.update();
 		
 		player = new Player(0, 0, 256, 256);
+		map = new Map();
 	}
 
 	public void update(float dt) {
-		if(Gdx.input.isKeyPressed(Keys.W)) player.translate(0, 10);
-		if(Gdx.input.isKeyPressed(Keys.A)) player.translate(-10, 0);
-		if(Gdx.input.isKeyPressed(Keys.S)) player.translate(0, -10);
-		if(Gdx.input.isKeyPressed(Keys.D)) player.translate(10, 0);
+		float speed = 500.0f * dt;
+		if(Gdx.input.isKeyPressed(Keys.W)) {
+			player.y += speed;
+		}
+		if(Gdx.input.isKeyPressed(Keys.A)) { 
+			player.x -= speed;
+		}
+		if(Gdx.input.isKeyPressed(Keys.S)) {
+			player.y -= speed;
+		}
+		if(Gdx.input.isKeyPressed(Keys.D)) {
+			player.x += speed;
+		}
 	}
 
 	public void draw() {
 		batch.setProjectionMatrix(cam.combined);
 		backgd.draw(batch);
+		map.draw(batch);
 		player.draw(batch);
 	}
 

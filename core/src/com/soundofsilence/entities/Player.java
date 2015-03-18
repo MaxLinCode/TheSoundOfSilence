@@ -6,13 +6,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Player extends Entity {
 	private int maxLife = 3;
 	private int life = 3;
-	private Texture tex = new Texture("Nyewall.com-download-the-legend-of-zelda-skyward-sword-hd-wallpapers-full-original.jpg");								
-	
+	private Texture tex = new Texture("chromeIcon.jpg");
 	public Player() {
 		
 	}
 
-	public Player(int x, int y, int width, int height) {
+	public Player(float x, float y, int width, int height) {
 		super(x, y, width, height);
 	}
 	
