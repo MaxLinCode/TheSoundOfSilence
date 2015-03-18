@@ -2,20 +2,20 @@ package com.soundofsilence.map;
 
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Scanner;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Map {
 	private ArrayList<Block> blocks = new ArrayList<Block>();
-	private Scanner scan;
+	private FileHandle file = Gdx.files.internal("maps/BlockMap.txt");
+	private BufferedReader read;
 
 	public Map() {
 		try { 
-			scan = new Scanner(new File("$DIR/assets/BlockMap.txt"));
+			read = new BufferedReader(file.reader());
 		} 
 		catch(Exception e) { 
 			e.printStackTrace(); 
@@ -23,9 +23,10 @@ public class Map {
 		
 		String line = "";
 		String[] values = new String[5];
-		for(int i = 0; ;i++ ) {
+		for(int i = 0; ;i++) {
 			try { 
-				line = scan.nextLine();
+				line = read.readLine();
+				if(line == null) break;
 			} 
 			catch(Exception e) { 
 				e.printStackTrace(); 

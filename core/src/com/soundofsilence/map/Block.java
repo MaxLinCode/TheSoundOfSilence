@@ -15,7 +15,13 @@ public class Block {
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		texture = new Texture("red_brick.jpg");
+		/*
+		 * MAKE SURE TO CHANGE THE TEXTURE TO REFLECT BLOCKTYPE
+		 * ALSO MAKE THE TEXTURE NOT STRETCH OVER THE RECTANGLE
+		 * 
+		 * possibly add the rectangle generation for the collision map
+		 */
+		texture = new Texture("textures/red_brick.jpg");
 	}
 	//requires a type, location, and size(width, height)
 	

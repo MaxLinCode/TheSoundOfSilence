@@ -31,7 +31,7 @@ public class PlayState extends GameState {
 		cam.setToOrtho(false);
 		cam.update();
 		
-		player = new Player(0, 0, 256, 256);
+		player = new Player(100, 100, 100, 100);
 		map = new Map();
 	}
 
