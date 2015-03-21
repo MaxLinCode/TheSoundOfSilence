@@ -3,6 +3,7 @@ package com.soundofsilence.map;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 
 public class Block {
 	private int blockType;
@@ -10,6 +11,7 @@ public class Block {
 	private int width, height;
 	private Texture texture;
 	private int texh, texw;
+	private Rectangle rect;
 	
 	public Block(int blockType, int x, int y, int width, int height) {
 		this.blockType = blockType;
@@ -17,7 +19,6 @@ public class Block {
 		this.y = y;
 		this.width = width;
 		this.height = height;
-
 		/*
 		 * MAKE SURE TO CHANGE THE TEXTURE TO REFLECT BLOCKTYPE
 		 * ALSO MAKE THE TEXTURE NOT STRETCH OVER THE RECTANGLE
@@ -27,6 +28,7 @@ public class Block {
 		texture = new Texture("textures/red_brick_64.jpg");
 		texw = texture.getWidth();
 		texh = texture.getHeight();
+		rect = new Rectangle();
 	}
 	//requires a type, location, and size(width, height)
 	

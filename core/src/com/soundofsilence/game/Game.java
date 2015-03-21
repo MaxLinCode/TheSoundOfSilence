@@ -22,12 +22,6 @@ public class Game implements ApplicationListener {
 	@Override
 	public void render () {
 		//fps.log();
-		try{
-			Thread.sleep(0);
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
 		// clear screen
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
